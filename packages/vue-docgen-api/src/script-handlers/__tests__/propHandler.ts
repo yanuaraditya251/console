@@ -307,6 +307,25 @@ describe('propHandler', () => {
 		})
 
 		describe('propType object should extract return statement', () => {
+			it('arrow functions with parentheses & @type in comment', () => {
+				const src = `
+        export default {
+          props: {
+            /*
+            * @type {{ a: number }}',
+            */
+            test: {
+              type: Object,
+              default: () => ({ a: 1 })
+            }
+          }
+        }
+        `
+				const testParsed = parserTest(src)
+				const defaultValue = removeWhitespaceForTest(testParsed.defaultValue)
+				expect(defaultValue).toMatchObject({ value: `{a:1}` })
+			})
+
 			it('arrow functions with parentheses', () => {
 				const src = `
         export default {
@@ -373,6 +392,25 @@ describe('propHandler', () => {
 		})
 
 		describe('propType array should extract return statement', () => {
+			it('arrow functions with parentheses & @type in comment', () => {
+				const src = `
+        export default {
+          props: {
+            /*
+             * @type {{ a: number }[]}',
+             */
+            test: {
+              type: Array,
+              default: () => ([{a: 1}])
+            }
+          }
+        }
+        `
+				const testParsed = parserTest(src)
+				const defaultValue = removeWhitespaceForTest(testParsed.defaultValue)
+				expect(defaultValue).toMatchObject({ value: `[{a:1}]` })
+			})
+
 			it('arrow functions with parentheses', () => {
 				const src = `
         export default {
@@ -460,12 +498,12 @@ describe('propHandler', () => {
             test: {
               type: Array,
               default: function () {
-				if (logger.mounted) {
-				  return []
-				} else {
-				  return undefined
-				}
-			  }
+        if (logger.mounted) {
+          return []
+        } else {
+          return undefined
+        }
+        }
             }
           }
         }
@@ -485,12 +523,12 @@ describe('propHandler', () => {
             test: {
               type: Array,
               default: () => {
-				if (logger.mounted) {
-				  return []
-				} else {
-				  return undefined
-				}
-			  }
+        if (logger.mounted) {
+          return []
+        } else {
+          return undefined
+        }
+        }
             }
           }
         }
@@ -543,6 +581,26 @@ describe('propHandler', () => {
 		})
 
 		describe('propType function should keep function', () => {
+			it('arrow functions with parentheses & @type in comment', () => {
+				const src = [
+					'export default {',
+					'  props: {',
+					'    /*',
+					'     * @type {(a: number, b: number) => { a: number, b: number }}',
+					'     */',
+					'    test: {',
+					'      type: Function,',
+					'      default: (a, b) => ({ a, b })',
+					'    }',
+					'  }',
+					'}'
+				].join('\n')
+
+				const testParsed = parserTest(src)
+				const defaultValue = removeWhitespaceForTest(testParsed.defaultValue)
+				expect(defaultValue).toMatchObject({ value: `(a,b)=>({a,b})` })
+			})
+
 			it('arrow functions with parentheses', () => {
 				const src = [
 					'export default {',
