@@ -1,4 +1,3 @@
-import Map from 'ts-map'
 import * as path from 'path'
 import { ImportedVariableSet } from './resolveRequired'
 import recursiveResolveIEV from '../utils/recursiveResolveIEV'

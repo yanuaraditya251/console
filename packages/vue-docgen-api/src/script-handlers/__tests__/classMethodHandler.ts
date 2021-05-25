@@ -1,5 +1,4 @@
 import { NodePath } from 'ast-types/lib/node-path'
-import Map from 'ts-map'
 import babylon from '../../babel-parser'
 import Documentation, { MethodDescriptor } from '../../Documentation'
 import resolveExportedComponent from '../../utils/resolveExportedComponent'

@@ -1025,7 +1025,6 @@ importers:
       lru-cache: ^4.1.5
       pug: ^3.0.2
       recast: 0.20.4
-      ts-map: ^1.0.3
       vue: 2.6.12
       vue-class-component: 7.2.6
       vue-clickaway: 2.2.2
@@ -1042,7 +1041,6 @@ importers:
       lru-cache: 4.1.5
       pug: 3.0.2
       recast: 0.20.4
-      ts-map: 1.0.3
       vue-inbrowser-compiler-utils: link:../vue-inbrowser-compiler-utils
     devDependencies:
       '@test-vue-docgen/mixins': link:../docgen-tests
@@ -24027,6 +24025,7 @@ packages:
 
   /ts-map/1.0.3:
     resolution: {integrity: sha512-vDWbsl26LIcPGmDpoVzjEP6+hvHZkBkLW7JpvwbCv/5IYPJlsbzCVXY3wsCeAxAUeTclNOUZxnLdGh3VBD/J6w==}
+    dev: true
 
   /ts-pnp/1.2.0:
     resolution: {integrity: sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==}

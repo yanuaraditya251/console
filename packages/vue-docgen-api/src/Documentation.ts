@@ -1,4 +1,3 @@
-import Map from 'ts-map'
 import {
 	Descriptor,
 	PropDescriptor,

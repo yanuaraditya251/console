@@ -1,7 +1,6 @@
 import * as bt from '@babel/types'
 import { NodePath } from 'ast-types/lib/node-path'
 import { visit } from 'recast'
-import Map from 'ts-map'
 import isExportedAssignment from './isExportedAssignment'
 import resolveExportDeclaration from './resolveExportDeclaration'
 import resolveIdentifier from './resolveIdentifier'

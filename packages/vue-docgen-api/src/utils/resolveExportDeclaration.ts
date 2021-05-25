@@ -1,7 +1,7 @@
 import * as bt from '@babel/types'
 import { NodePath } from 'ast-types/lib/node-path'
-import Map from 'ts-map'
 
+s
 export default function resolveExportDeclaration(path: NodePath): Map<string, NodePath> {
 	const definitions = new Map<string, NodePath>()
 	if (bt.isExportDefaultDeclaration(path.node)) {

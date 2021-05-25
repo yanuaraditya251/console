@@ -1,6 +1,5 @@
 import { ParserPlugin } from '@babel/parser'
 import { NodePath } from 'ast-types/lib/node-path'
-import Map from 'ts-map'
 import babylon from '../../babel-parser'
 import Documentation from '../../Documentation'
 import resolveExportedComponent from '../../utils/resolveExportedComponent'

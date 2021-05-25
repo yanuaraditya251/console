@@ -1,5 +1,4 @@
 import * as bt from '@babel/types'
-import Map from 'ts-map'
 import { visit } from 'recast'
 import { NodePath } from 'ast-types/lib/node-path'
 
